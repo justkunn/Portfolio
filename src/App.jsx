@@ -6,23 +6,20 @@ import About from './components/About'
 import Header from './components/Header'
 import Navbar from './components/Navbar'
 import LenisScroll from './components/LenisScroll'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom'
+import Home from './components/Home'
 
 export default function App() {
     return (
         <>
-        <BrowserRouter>
-        <Routes>
-            <Route path='/About' element={
-            <About />}/>
-        </Routes>
-        </BrowserRouter>
             <LenisScroll />
             <Navbar />
-            <Header />
-            <Services />
-            <Work />
-            <Contact />
+            <Routes>
+            <Route path='/about' element={<About />} />
+            <Route path='/service' element={<Services />} />
+            <Route path='/work' element={<Work />} />
+            <Route path='/contact' element={<Contact />} />
+        </Routes>
             <Footer />
         </>
     )

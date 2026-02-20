@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link, NavLink } from 'react-router-dom'
 
 export default function Navbar() {
     const sideMenuRef = useRef();
@@ -51,17 +52,17 @@ export default function Navbar() {
 
             <nav ref={navRef} className="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
 
-                <a href="#!">
+                <Link to="/">
                     <img src="./assets/logo.png" alt="Logo" className="w-28 cursor-pointer mr-14 dark:hidden" />
                     <img src="./assets/logo_dark.png" alt="Logo" className="w-28 cursor-pointer mr-14 hidden dark:block" />
-                </a>
+                </Link>
 
                 <ul ref={navLinkRef} className="hidden md:flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo dark:border dark:border-white/30 dark:bg-transparent ">
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#top">Home</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#about">About me</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#services">Services</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#work">My Work</a></li>
-                    <li><a className='hover:text-gray-500 dark:hover:text-gray-300 transition' href="#contact">Contact me</a></li>
+                    <li><NavLink className='hover:text-gray-500 dark:hover:text-gray-300 transition' to="/">Home</NavLink></li>
+                    <li><NavLink className='hover:text-gray-500 dark:hover:text-gray-300 transition' to="/about">About me</NavLink></li>
+                    <li><NavLink className='hover:text-gray-500 dark:hover:text-gray-300 transition' to="/service">Services</NavLink></li>
+                    <li><NavLink className='hover:text-gray-500 dark:hover:text-gray-300 transition' to="/work">My Work</NavLink></li>
+                    <li><NavLink className='hover:text-gray-500 dark:hover:text-gray-300 transition' to="/contact">Contact me</NavLink></li>
                 </ul>
 
                 <div className="flex items-center gap-4">
@@ -70,11 +71,11 @@ export default function Navbar() {
                         <img src="./assets/sun_icon.png" alt="" className="w-5 hidden dark:block" />
                     </button>
 
-                    <a href="#contact" className="hidden lg:flex items-center gap-3 px-8 py-1.5 border border-gray-300 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full ml-4 font-Ovo dark:border-white/30">
+                    <Link to="/contact" className="hidden lg:flex items-center gap-3 px-8 py-1.5 border border-gray-300 hover:bg-slate-100/70 dark:hover:bg-darkHover rounded-full ml-4 font-Ovo dark:border-white/30">
                         Contact
                         <img src="./assets/arrow-icon.png" alt="" className="w-3 dark:hidden" />
                         <img src="./assets/arrow-icon-dark.png" alt="" className="w-3 hidden dark:block" />
-                    </a>
+                    </Link>
 
                     <button className="block md:hidden ml-3" onClick={openMenu}>
                         <img src="./assets/menu-black.png" alt="" className="w-6 dark:hidden" />
@@ -90,11 +91,11 @@ export default function Navbar() {
                         <img src="./assets/close-white.png" alt="" className="w-5 cursor-pointer hidden dark:block" />
                     </div>
 
-                    <li><a href="#top" onClick={closeMenu}>Home</a></li>
-                    <li><a href="#about" onClick={closeMenu}>About me</a></li>
-                    <li><a href="#services" onClick={closeMenu}>Services</a></li>
-                    <li><a href="#work" onClick={closeMenu}>My Work</a></li>
-                    <li><a href="#contact" onClick={closeMenu}>Contact me</a></li>
+                    <li><NavLink to="/" onClick={closeMenu}>Home</NavLink></li>
+                    <li><NavLink to="/about" onClick={closeMenu}>About me</NavLink></li>
+                    <li><NavLink to="/service" onClick={closeMenu}>Services</NavLink></li>
+                    <li><NavLink to="/work" onClick={closeMenu}>My Work</NavLink></li>
+                    <li><NavLink to="/contact" onClick={closeMenu}>Contact me</NavLink></li>
                 </ul>
             </nav>
         </>
